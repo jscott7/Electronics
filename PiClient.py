@@ -1,3 +1,4 @@
+# Read characters from stdin and send to 2 Arduinos via serial
 import termios, fcntl, sys, os, serial
 
 arduino1 = serial.Serial('/dev/ttyUSB0')

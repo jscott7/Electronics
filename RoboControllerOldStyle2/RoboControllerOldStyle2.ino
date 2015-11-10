@@ -1,3 +1,5 @@
+// Listen to bytes on serial port and drive motor shield accordingly
+// Based on sample found here: http://playground.arduino.cc/Main/AdafruitMotorShield
 
 // 8-bit bus after the 74HC595 shift register (not Arduino pins)
 // These are used to set the direction of the bridge driver

@@ -5,6 +5,12 @@
 // These are used to set the direction of the bridge driver
 #define MOTOR1_A 2
 #define MOTOR1_B 3
+#define MOTOR2_A 1
+#define MOTOR2_B 4
+#define MOTOR3_A 5
+#define MOTOR3_B 7
+#define MOTOR4_A 0
+#define MOTOR4_B 6
 
 // Arduino pins for the shift register
 #define MOTORLATCH 12
@@ -14,6 +20,9 @@
 
 // Arduino pins for the PWM signals
 #define MOTOR1_PWM 11
+#define MOTOR2_PWM 3
+#define MOTOR3_PWM 6
+#define MOTOR4_PWM 5
 
 // Codes for motor function
 #define FORWARD 1
@@ -35,6 +44,7 @@ void loop()
   {
     inByte = Serial.read();
     
+    // Debugging
     if (inByte > 0)
     {
       Serial.println(inByte);
@@ -49,9 +59,36 @@ void loop()
   {
     motor(1, BACKWARD, 255);
   }
+  if (inByte == 101) //'e'
+  {
+    motor(2, FORWARD, 255);
+  }
+  if (inByte == 100) // 'd'
+  {
+    motor(2, BACKWARD, 255);
+  }
+  if (inByte == 116) //'t'
+  {
+    motor(3, FORWARD, 255);
+  }
+  if (inByte == 103) // 'g'
+  {
+    motor(3, BACKWARD, 255);
+  } 
+  if (inByte == 117) //'u'
+  {
+    motor(4, FORWARD, 255);
+  }
+  if (inByte == 106) // 'j'
+  {
+    motor(4, BACKWARD, 255);
+  } 
   if (inByte == 32)
   {
      motor(1, RELEASE, 0);
+     motor(2, RELEASE, 0);
+     motor(3, RELEASE, 0);
+     motor(4, RELEASE, 0);
   }
   
 }
@@ -66,6 +103,18 @@ void motor(int nMotor, int command, int speed)
       case 1:
         motorA = MOTOR1_A;
         motorB = MOTOR1_B;
+        break;
+      case 2:
+        motorA = MOTOR2_A;
+        motorB = MOTOR2_B;
+        break;
+      case 3:
+        motorA = MOTOR3_A;
+        motorB = MOTOR3_B;
+        break;
+      case 4:
+        motorA = MOTOR4_A;
+        motorB = MOTOR4_B;
         break;
       default:
         break;
@@ -101,6 +150,18 @@ void motor_output(int output, int high_low, int speed)
    case MOTOR1_B:
      motorPWM = MOTOR1_PWM;
      break;
+   case MOTOR2_A:
+   case MOTOR2_B:
+      motorPWM = MOTOR2_PWM;
+      break;
+   case MOTOR3_A:
+   case MOTOR3_B:
+      motorPWM = MOTOR3_PWM;
+      break;
+   case MOTOR4_A:
+   case MOTOR4_B:
+      motorPWM = MOTOR4_PWM;
+      break;
    default:
      // Use apeed as error flag, -3333 = invalid output
      speed = -3333;

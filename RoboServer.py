@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+# Create a TCP server to listen for character inputs
+# Then pipe the input to the Motor control Arduinos via serial
 import socket, serial
 
 arduino1 = serial.Serial('/dev/ttyUSB0')
@@ -21,5 +23,5 @@ while 1:
     print "Received data:", data
     arduino1.write(data)
     arduino2.write(data)
-    conn.send(data) # echo
+    conn.send(data) # echo back to TCP client
 conn.close()

@@ -21,10 +21,10 @@ public class MainController extends Activity {
 	private Button m_upButton3;
 	private Button m_downButton3;
 
-	private ImageButton m_leftButton;
-	private ImageButton m_rightButton;
-	private ImageButton m_leftButtonGrip;
-	private ImageButton m_rightButtonGrip;
+	private Button m_leftButton;
+	private Button m_rightButton;
+	private Button m_leftButtonGrip;
+	private Button m_rightButtonGrip;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -203,7 +203,7 @@ public class MainController extends Activity {
 			
 		});		
 		
-		m_leftButton = (ImageButton) findViewById(R.id.left_button);
+		m_leftButton = (Button) findViewById(R.id.left_button);
 		m_leftButton.setOnTouchListener(new OnTouchListener(){
 
 			@Override
@@ -221,7 +221,7 @@ public class MainController extends Activity {
 			}		
 		});	
 		
-		m_rightButton = (ImageButton) findViewById(R.id.right_button);
+		m_rightButton = (Button) findViewById(R.id.right_button);
 		m_rightButton.setOnTouchListener(new OnTouchListener(){
 
 			@Override
@@ -240,7 +240,7 @@ public class MainController extends Activity {
 		});	
 		
 		
-		m_leftButtonGrip = (ImageButton) findViewById(R.id.left_button_grip);
+		m_leftButtonGrip = (Button) findViewById(R.id.left_button_grip);
 		m_leftButtonGrip.setOnTouchListener(new OnTouchListener(){
 
 			@Override
@@ -258,7 +258,7 @@ public class MainController extends Activity {
 			}		
 		});	
 		
-		m_rightButtonGrip = (ImageButton) findViewById(R.id.right_button_grip);
+		m_rightButtonGrip = (Button) findViewById(R.id.right_button_grip);
 		m_rightButtonGrip.setOnTouchListener(new OnTouchListener(){
 
 			@Override

@@ -7,7 +7,7 @@ import socket, serial
 arduino1 = serial.Serial('/dev/ttyUSB0')
 arduino2 = serial.Serial('/dev/ttyACM0')
 
-TCP_IP = '192.168.0.2'
+TCP_IP = '192.168.0.12'
 TCP_PORT = 5005
 BUFFER_SIZE = 20 # Normally 1024, but we want a fast response
 
